@@ -1,4 +1,4 @@
-var positions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14, 16];
+var positions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 var shuffle = function (array) {
 
 	var currentIndex = array.length;
@@ -20,9 +20,30 @@ var shuffle = function (array) {
 
 };
 
-function populateBoard() {
+$(function(){
+	var click1 = '';
+	var click2 = '';
   shuffle(positions);
-  console.log(positions);
-}
+	for(var i=0; i < 8 ; i++) {
+		$('#pos'+ positions[i]).prepend('<img class="pic'+i+'" src="img/pic' + (i+1) + '.jpeg">');
+		$('#pos'+ positions[positions.length - i - 1]).prepend('<img class="pic'+i+'" src="img/pic' + (i+1) + 'a.jpeg">');
+	};
+	$('#start').click(function(){
+		$('[class^="pic"]').hide();
+		$('.question').show();
+	});
+	$('.question').click(function(){
+		if(click1 === ''){
+			assignClick1();
+			return;
+		}
+		$(this).toggle();
+		$(this).prev().toggle();
+		// if(click1 = $(this).prev().attr('class');
+		console.log(click1);
+	});
 
-populateBoard();
+
+
+
+	});
