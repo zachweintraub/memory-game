@@ -33,14 +33,15 @@ $(function(){
 		$('.question').show();
 	});
 	$('.question').click(function(){
-		if(click1 === ''){
-			assignClick1();
-			return;
-		}
 		$(this).toggle();
 		$(this).prev().toggle();
-		// if(click1 = $(this).prev().attr('class');
+		click1 = $(this).prev().attr('class');
 		console.log(click1);
+	});
+	$('[class^="pic"]').click(function(){
+		$(this).toggle();
+		$(this).next().toggle();
+
 	});
 
 
